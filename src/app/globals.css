@@ -1,8 +1,58 @@
 @import "tailwindcss";
 
+/* Customizable Color System - Dark Theme with Burgundy/Gold/Teal */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors (Deep Red/Burgundy - matching hero image) */
+  --color-primary-50: #fdf2f2;
+  --color-primary-100: #fce8e8;
+  --color-primary-200: #fbd5d5;
+  --color-primary-300: #f8b4b4;
+  --color-primary-400: #f87171;
+  --color-primary-500: #ef4444;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+  
+  /* Secondary Colors (Blue) */
+  --color-secondary-50: #eff6ff;
+  --color-secondary-100: #dbeafe;
+  --color-secondary-200: #bfdbfe;
+  --color-secondary-300: #93c5fd;
+  --color-secondary-400: #60a5fa;
+  --color-secondary-500: #3b82f6;
+  --color-secondary-600: #2563eb;
+  --color-secondary-700: #1d4ed8;
+  --color-secondary-800: #1e40af;
+  --color-secondary-900: #1e3a8a;
+  
+  /* Accent Colors (Purple) */
+  --color-accent-50: #faf5ff;
+  --color-accent-100: #f3e8ff;
+  --color-accent-200: #e9d5ff;
+  --color-accent-300: #d8b4fe;
+  --color-accent-400: #c084fc;
+  --color-accent-500: #a855f7;
+  --color-accent-600: #9333ea;
+  --color-accent-700: #7c3aed;
+  --color-accent-800: #6b21d4;
+  --color-accent-900: #581c87;
+  
+  /* Background and Text - Dark Theme */
+  --background: #0f0f0f;
+  --foreground: #f5f5f5;
+  
+  /* Neutral Colors - Dark Theme */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-600: #52525b;
+  --color-gray-700: #3f3f46;
+  --color-gray-800: #27272a;
+  --color-gray-900: #18181b;
 }
 
 @theme inline {
@@ -10,17 +60,108 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Custom color utilities */
+  --color-primary: var(--color-primary-600);
+  --color-secondary: var(--color-secondary-600);
+  --color-accent: var(--color-accent-500);
 }
 
-@media (prefers-color-scheme: dark) {
+/* Light mode support (override for users who prefer light mode) */
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40%, 43% {
+    transform: translateY(-10px);
+  }
+  70% {
+    transform: translateY(-5px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .8;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-bounce-gentle {
+  animation: bounce 2s infinite;
+}
+
+.animate-pulse-gentle {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Utility classes for custom colors */
+.text-primary { color: var(--color-primary-600); }
+.text-secondary { color: var(--color-secondary-600); }
+.text-accent { color: var(--color-accent-500); }
+.bg-primary { background-color: var(--color-primary-600); }
+.bg-secondary { background-color: var(--color-secondary-600); }
+.bg-accent { background-color: var(--color-accent-500); }
+.border-primary { border-color: var(--color-primary-600); }
+.border-secondary { border-color: var(--color-secondary-600); }
+.border-accent { border-color: var(--color-accent-500); }
+
+/* Gradient utilities */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
+}
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-700));
+}
+.bg-gradient-accent {
+  background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
 }
