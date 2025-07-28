@@ -126,11 +126,6 @@ const Experience = () => {
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-semibold text-white">
                       {credit.show}
-                      {credit.status && (
-                        <span className="ml-2 px-2 py-1 text-xs bg-teal-600 text-white rounded-full">
-                          {credit.status}
-                        </span>
-                      )}
                     </h4>
                   </div>
                   <p className="text-red-400 font-medium mb-1">{credit.role}</p>
@@ -152,20 +147,11 @@ const Experience = () => {
               {musicCredits.map((credit, index) => (
                 <div 
                   key={index}
-                  className={`p-4 rounded-lg border-l-4 transition-all duration-200 ${
-                    credit.highlight 
-                      ? 'bg-gradient-to-r from-blue-900/50 to-blue-800/30 border-blue-500 shadow-lg border' 
-                      : 'bg-gray-900 border border-gray-700 border-blue-500 hover:shadow-lg hover:border-blue-400'
-                  }`}
+                  className={`p-4 rounded-lg border-l-4 transition-all duration-200`}
                 >
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-semibold text-white">
                       {credit.show}
-                      {credit.highlight && (
-                        <span className="ml-2 px-2 py-1 text-xs bg-blue-600 text-white rounded-full">
-                          Featured
-                        </span>
-                      )}
                     </h4>
                   </div>
                   <p className="text-blue-400 font-medium mb-1">{credit.role}</p>
