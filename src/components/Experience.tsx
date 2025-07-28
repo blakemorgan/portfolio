@@ -147,7 +147,7 @@ const Experience = () => {
               {musicCredits.map((credit, index) => (
                 <div 
                   key={index}
-                  className={`p-4 rounded-lg border-l-4 transition-all duration-200`}
+                  className={`p-4 rounded-lg border-l-4 transition-all duration-200 bg-gray-900 border border-gray-700 border-blue-500 hover:shadow-lg hover:border-blue-400`}
                 >
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-semibold text-white">
