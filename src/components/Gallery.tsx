@@ -43,9 +43,9 @@ const Gallery = () => {
       caption: 'Casual Portrait'
     },
     {
-      src: '/unnamed (1).jpg',
-      alt: 'Blake Morgan Headshot',
-      caption: 'Headshot'
+      src: '/IMG_0783.jpg',
+      alt: 'Blake Morgan Performance Photo',
+      caption: 'Performance Photo'
     },
     {
       src: '/DSC_1635.jpg',
